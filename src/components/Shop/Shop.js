@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Product from '../Product/Product';
 import './Shop.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faTrash, faRightLong } from '@fortawesome/free-solid-svg-icons';
 const Shop = () => {
     const [products, setProducts] = useState([]);
     let [cart, setCart] = useState([]);
@@ -40,8 +42,14 @@ const Shop = () => {
                     <p>Tax: </p>
                     <h3>Grand Total: </h3>
                 </div>
-                <button className='clear-btn' onClick={clearCart}>Clear Cart</button>
-                <button className='review-btn'>Review Order</button>
+                <button className='clear-btn' onClick={clearCart}>
+                    <p>Clear Cart</p>
+                    <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
+                </button>
+                <button className='review-btn'>
+                    <p>Review Order</p>
+                    <FontAwesomeIcon icon={faRightLong}></FontAwesomeIcon>
+                </button>
             </div>
         </div>
     );

@@ -28,6 +28,12 @@
     border-radius: 4px;
     color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.clear-btn p{
+    margin-right: 10px;
 }
 .review-btn{
     height: 48px;
@@ -38,4 +44,10 @@
     border-radius: 4px;
     color: white;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.review-btn p{
+    margin-right: 10px;
 }
