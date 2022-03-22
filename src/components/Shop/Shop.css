@@ -2,3 +2,40 @@
     display: grid;
     grid-template-columns: 4fr 1fr;
 }
+.product-container{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 30px;
+    margin: 120px 50px;
+    margin-top: 120px;
+}
+
+.cart-container{
+    background: rgba(255, 153, 0, 0.3);
+}
+.cart-title{
+    text-align: center;
+}
+.order-details{
+    padding: 23px;
+}
+.clear-btn{
+    height: 48px;
+    width: 232px;
+    margin: 10px 16px;
+    border: none;
+    background: #FF3030;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
+.review-btn{
+    height: 48px;
+    width: 232px;
+    margin: 10px 16px;
+    border: none;
+    background: #FF9900;
+    border-radius: 4px;
+    color: white;
+    cursor: pointer;
+}
