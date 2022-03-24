@@ -10,7 +10,7 @@ const addToDB = id => {
     }
 
     localStorage.setItem('shopping-cart', JSON.stringify(shoppingCart));
-    console.log(shoppingCart);
+    // console.log(shoppingCart);
 }
 const getLocalStorage = () => {
     let shoppingCart = {};

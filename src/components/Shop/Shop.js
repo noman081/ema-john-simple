@@ -20,20 +20,35 @@ const Shop = () => {
         for (const id in storedData) {
             const quantity = storedData[id];
             const addedProduct = products.find(product => product.id === id);
-            console.log(addedProduct);
+            // console.log(addedProduct);
             if (addedProduct) {
+                addedProduct.quantity = quantity;
                 selectedProduct.push(addedProduct);
             }
-
         }
+        console.log(selectedProduct);
         setCart(selectedProduct);
     }, [products]);
     const addToCart = product => {
-        console.log(cart);
-        const newCart = [...cart, product];
+        // console.log(cart);
+        // const newCart = [...cart, product];
+        // setCart(newCart);
+        // console.log(newCart);
+        let newCart = [];
+        const exists = cart.find(cartProduct => cartProduct.id === product.id);
+
+        if (!exists) {
+            product.quantity = 1;
+            newCart = [...cart, product];
+        }
+        else {
+            const rests = cart.filter(cartProduct => cartProduct.id !== product.id);
+            exists.quantity += 1;
+            newCart = [...rests, exists]
+        }
         setCart(newCart);
-        console.log(newCart);
         addToDB(product.id);
+
     }
     const clearCart = () => {
         cart = [];
