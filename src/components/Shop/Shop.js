@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import Cart from '../Cart/Cart';
 import Product from '../Product/Product';
 import './Shop.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faTrash, faRightLong } from '@fortawesome/free-solid-svg-icons';
+
 const Shop = () => {
     const [products, setProducts] = useState([]);
     let [cart, setCart] = useState([]);
-    const [price, setPrice] = useState(0);
     useEffect(() => {
         fetch('products.json')
             .then(res => res.json())
@@ -16,15 +15,11 @@ const Shop = () => {
         console.log(cart);
         const newCart = [...cart, product];
         setCart(newCart);
-        const newPrice = price + product.price;
-        setPrice(newPrice);
         console.log(newCart);
-        console.log(price);
     }
     const clearCart = () => {
         cart = [];
         setCart(cart);
-        setPrice(0);
     }
     return (
         <div className='shop-container'>
@@ -34,22 +29,7 @@ const Shop = () => {
                 }
             </div>
             <div className="cart-container">
-                <h2 className='cart-title'>Order Summary</h2>
-                <div className='order-details'>
-                    <p>Selected Item: {cart.length}</p>
-                    <p>Total Price:  {price}</p>
-                    <p>Total Shipping Charge: </p>
-                    <p>Tax: </p>
-                    <h3>Grand Total: </h3>
-                </div>
-                <button className='clear-btn' onClick={clearCart}>
-                    <p>Clear Cart</p>
-                    <FontAwesomeIcon icon={faTrash}></FontAwesomeIcon>
-                </button>
-                <button className='review-btn'>
-                    <p>Review Order</p>
-                    <FontAwesomeIcon icon={faRightLong}></FontAwesomeIcon>
-                </button>
+                <Cart cart={cart} clearCart={clearCart}></Cart>
             </div>
         </div>
     );
